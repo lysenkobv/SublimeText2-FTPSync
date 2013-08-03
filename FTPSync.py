@@ -1800,6 +1800,8 @@ def performRemoteCheck(file_path, window, forced = False):
 	every = []
 
 	for entry in metadata:
+		if config['connections'][entry['connection']]['check_time'] is False:
+			continue
 		if forced is False and entry['metadata'].isDifferentSizeThan(file_path) is False:
 			continue
 
